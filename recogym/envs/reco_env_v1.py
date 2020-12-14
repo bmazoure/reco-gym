@@ -108,7 +108,7 @@ class RecoEnv1(AbstractEnv):
                     self.beta @ self.omega + self.mu_bandit
             ).ravel()
         assert self.cached_state_seed is not None
-        ctr = ff(self.cached_state_seed)
+        ctr = ff(self.cached_state_seed,ee=2)
         click = self.rng.choice(
             [0, 1],
             p=[1 - ctr[recommendation], ctr[recommendation]]
